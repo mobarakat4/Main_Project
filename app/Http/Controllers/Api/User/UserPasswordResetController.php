@@ -17,7 +17,7 @@ class UserPasswordResetController extends Controller
     public function sendRestLinkEmail(ResetEmailRequest $request){
         // $request->validated();
         
-        $url=URL::temporarySignedRoute('password.reset',now()->addMinutes(30),['email'=>$request->email]);
+        $url=URL::temporarySignedRoute('passworduser.reset',now()->addMinutes(30),['email'=>$request->email]);
         // $url=str_replace(env('APP_URL'),env('FRONTEND_URL'),$url);
         
         Mail::to($request->email)->send(new ResetPasswordLink($url));

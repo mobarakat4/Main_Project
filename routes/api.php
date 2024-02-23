@@ -20,7 +20,10 @@ use App\Http\Controllers\Api\User\UserController;
 |
 */
 
-
+// if route not exist 
+Route::fallback(function(){
+    return response(['error'=>'404 not found'],404);
+});
 //for test if api work or not
 Route::get('/test', function () {
     return response(['message' => 'work'], 200);
@@ -38,7 +41,7 @@ Route::prefix('admin')->middleware('guest:sanctum')->group(function () {
     Route::post('login-admin', [AdminController::class, 'login'])->name('login-admin');
     
     Route::post('password/email',[PasswordResetController::class,'sendRestLinkEmail']);
-    Route::post('password/reset',[PasswordResetController::class,'reset'])->middleware('signed')->name('password.reset');
+    Route::post('password/reset',[PasswordResetController::class,'reset'])->middleware('signed')->name('passwordadmin.reset');
 });
 
 
@@ -47,7 +50,7 @@ Route::prefix('user')->middleware('guest:sanctum')->group(function () {
     Route::post('register-user', [UserController::class, 'register'])->name('register-user');
     Route::post('login-user', [UserController::class, 'login'])->name('login-user');
     Route::post('password/email',[UserPasswordResetController::class,'sendRestLinkEmail']);
-    Route::post('password/reset',[UserPasswordResetController::class,'reset'])->middleware('signed')->name('password.reset');
+    Route::post('password/reset',[UserPasswordResetController::class,'reset'])->middleware('signed')->name('passworduser.reset');
 });
 
 

@@ -20,7 +20,7 @@ class UserController extends Controller
             'password'=> Hash::make($request->password),
         ];
         $user  = User::create($userdata);
-        $token = $user->createToken('forumapp')->plainTextToken;
+        $token = $user->createToken('forumapp',['role:user'])->plainTextToken;
         return response([
             'message'=> 'register success',
             'user'=> $user,
@@ -35,6 +35,7 @@ class UserController extends Controller
                 'message'=> 'invalid',
             ],422);
         }
+        //create token for user that login
         $token = $user->createToken('forumapp', ['role:user'])->plainTextToken;
         return response([
             'message'=> 'login success',
