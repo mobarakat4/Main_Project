@@ -44,16 +44,16 @@ return [
         //     'driver' => 'sanctum',
         //     'provider' => 'users',
         // ],
-        // 'user' => [
-        //     'driver' => 'sanctum',
-        //     'provider' => 'users',
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
             
-        // ],
-        // 'admin' => [
-        //     'driver' => 'sanctum',
-        //     'provider' => 'admins',
+        ],
+        'admin' => [
+            'driver' => 'sanctum',
+            'provider' => 'admins',
             
-        // ],
+        ],
     ],
 
     /*
@@ -78,10 +78,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        // 'admins' => [
-        //     'driver' => 'eloquent',
-        //     'model' => App\Models\Admin::class,
-        // ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
