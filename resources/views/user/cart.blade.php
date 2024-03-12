@@ -43,8 +43,8 @@
 									<th class="product-image">Product Image</th>
 									<th class="product-name">Name</th>
 									<th class="product-price">Price</th>
-									<th class="product-quantity">Quantity</th>
-									<th class="product-total">Total</th>
+									{{-- <th class="product-quantity">Quantity</th>
+									<th class="product-total">Total</th> --}}
 								</tr>
 							</thead>
 							<tbody>
@@ -58,8 +58,8 @@
 									<td class="product-image"><img src={{ $product->image_path }} alt=""></td>
 									<td class="product-name">{{ $product->name }}</td>
 									<td class="product-price">${{ $product->price }}</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
+									{{-- <td class="product-quantity"><input type="number"  placeholder="1"></td> --}}
+									{{-- <td class="product-total">1</td> --}}
 								</tr>
 								@endforeach
 					
@@ -80,7 +80,7 @@
 							<tbody>
 								<tr class="total-data">
 									<td><strong>Subtotal: </strong></td>
-									<td>$500</td>
+									<td>${{ $total }}</td>
 								</tr>
 								<tr class="total-data">
 									<td><strong>Shipping: </strong></td>
@@ -88,7 +88,7 @@
 								</tr>
 								<tr class="total-data">
 									<td><strong>Total: </strong></td>
-									<td>$545</td>
+									<td>${{ $total+45 }}</td>
 								</tr>
 							</tbody>
 						</table>

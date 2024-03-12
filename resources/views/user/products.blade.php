@@ -50,7 +50,7 @@
                 <div class="col-lg-4 col-md-6 text-center {{ $product->category->name }}">
                     <div class="single-product-item my-cat">
                         <div class="product-image">
-                            <a href="single-product.html"><img width="243" height="243" src="{{ $product->image_path }}" alt=""></a>
+                            <a href="{{ route('products.show', ['id' => $product->id])  }}"><img width="243" height="243" src="{{ asset("$product->image_path") }}" alt=""></a>
                         </div>
                         <h3>{{ $product->name }}</h3>
                         <p class="product-price"><span>Per One</span> {{ $product->price }}$ </p>

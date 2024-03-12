@@ -14,9 +14,12 @@ class CartController extends Controller
     public function index(){
         //get all products from the user cart
         $cart=Cart::where('user_id',auth()->user()->id)->first();
+
+        
         $products=$cart->products;
+        $total=$products->sum('price');
         // dd($products);
-        return view('user.cart' ,['products'=>$products]);
+        return view('user.cart' ,['products'=>$products,'total'=>$total]);
     }
     public function addToCart(Request $request)
     {
@@ -25,7 +28,6 @@ class CartController extends Controller
     // dd($request->all());
     $productId = $request->input('productId');
     
-    // return response()->json(['message' => 'Product added to cart successfully','cart_id'=> $cart->id,'id'=>$productId], 200);
     DB::table('product_cart')->insert([
         'product_id' => $productId,
         'cart_id' => $cart->id,

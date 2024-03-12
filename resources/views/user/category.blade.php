@@ -46,7 +46,7 @@ categories
 				<div class="col-lg-4 col-md-6 text-center ">
 					<div class="single-product-item my-cat">
 						<div class="product-image">
-							<a href="single-product.html"><img class=".cat-img" src="{{ $cat->image }}" alt=""></a>
+							<a href="/products"><img class=".cat-img" src="{{ asset("$cat->image") }}" alt=""></a>
 						</div>
 						<h3>{{ $cat->name }}</h3>
 					</div>
