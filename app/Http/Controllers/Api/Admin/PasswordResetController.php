@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\URL;
 class PasswordResetController extends Controller
 {
     public function sendRestLinkEmail(ResetEmailRequest $request){
-        $url=URL::temporarySignedRou-('passwordadmin.reset',now()->addMinutes(30),['email'=>$request->email]);
+        $url=URL::temporarySignedRoute('passwordadmin.reset',now()->addMinutes(30),['email'=>$request->email]);
         // $url=str_replace(env('APP_URL'),env('FRONTEND_URL'),$url);
         
         Mail::to($request->email)->send(new ResetPasswordLink($url));
-        
+
         return response(['message'=>'reset link sent to your email']); 
         
     }

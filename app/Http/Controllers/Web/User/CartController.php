@@ -13,8 +13,8 @@ class CartController extends Controller
     //
     public function index(){
         //get all products from the user cart
-        $cart=Cart::where('user_id',auth()->user()->id)->first();
-
+        // $cart=Cart::where('user_id',auth()->user()->id)->first();
+        $cart = Cart::firstOrCreate(['user_id' => auth()->user()->id]);
         
         $products=$cart->products;
         $total=$products->sum('price');

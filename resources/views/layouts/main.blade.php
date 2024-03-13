@@ -107,6 +107,7 @@
 										<a {{ Request::is('cart') ? "class=my-active" : '' }} class="shopping-cart " href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart " ></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 										<a  {{ Request::is('profile') ? "class=my-active" : '' }} href="{{ route('user.profile') }}">{{ auth()->user()->username }}</a>
+										<a href="{{ route('user.logout') }}">log out</a>
 										
 									</div>
 									

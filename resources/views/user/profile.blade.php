@@ -44,7 +44,7 @@
     <div class="card-body">
       <div class="d-flex align-items-start align-items-sm-center my-4 gap-4">
         <img
-          src="{{ asset(auth()->user()->image_path) ? asset(auth()->user()->image_path) : 'assets/img/avatars/1.png'}}"
+        src="{{ optional(auth()->user())->image_path ? asset(auth()->user()->image_path) : asset('assets/img/users/blank-profile-picture-973460_1280.webp') }}"
           alt="user-avatar"
           class="d-block rounded"
           height="100"

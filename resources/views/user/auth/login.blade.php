@@ -30,9 +30,16 @@
           <!-- /Logo -->
           <h4 class="mb-2">Welcome </h4>
           <p class="mb-4">Please sign-in to your account and start the adventure</p>
+          {{-- this when  send error message --}}
           @if(session('error'))
-        <div class=" p-1 d-flex "><span class="text-danger">{{ session('error') }}</span></div>
-        @endif
+          <div class=" p-1 d-flex "><span class="text-danger">{{ session('error') }}</span></div>
+          @endif
+          {{-- this when sent success message --}}
+          @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+          @endif
           <form id="formAuthentication" class="mb-3" action="{{ route('user.login') }}" method="POST">
             @csrf
             <div class="mb-3">
