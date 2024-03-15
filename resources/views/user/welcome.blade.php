@@ -4,5 +4,7 @@
     Home
 @endsection
 @section('content')
-Welcome to my website
+<div>
+    <h1 class="text-center" style="font-size: 50px">Welcome</h1>
+</div>
 @endsection

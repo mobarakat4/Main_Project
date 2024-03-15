@@ -17,7 +17,7 @@ use App\Http\Controllers\Web\User\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::middleware('auth:user')->group(function () {
+Route::middleware(['auth:user','verified'])->group(function () {
 Route::get('/', function () {
     return view('user.welcome');
 })->name('user.home');
@@ -39,11 +39,20 @@ Route::post('/add-to-cart',[CartController::class,'addToCart'])->name('add-to-ca
 Route::delete('/cart/{productId}', [CartController::class,'removeFromCart'])->name('cart.remove');
 Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout');
 });
+
+
 // for guest requests
 Route::middleware('guest:user')->group(function () {
+    //login
     Route::get('/login',[LoginController::class,'show_login_page'])->name('show_login_page');
     Route::post('/login',[LoginController::class,'login'])->name('user.login');
+    //end login
 
+    //register
+    Route::get('/register',[LoginController::class,'show_register_page'])->name('show_register_page');
+    Route::post('/register',[LoginController::class,'register'])->name('user.register');
+    //end register
+    
     //start reset password
     Route::get('/forgot-password',[LoginController::class,'show_forgotPassowrd_page'])->name('show_forgotPassword_page');
 
@@ -54,7 +63,9 @@ Route::middleware('guest:user')->group(function () {
     Route::post('/reset-password',[LoginController::class,'resetPassowrd'])->name('user.resetPassword');
     //end reset password
     
-    Route::get('/register',[LoginController::class,'show_register_page'])->name('show_register_page');
-    // Route::get('/login', [LoginController::class, 'show_login_page'])->name('admin.show_login_page');
-    // Route::post('/login', [LoginController::class, 'login'])->name('admin.login');
+    //start verify email
+    Route::get('/verify/email',[LoginController::class,'verifyEmail'])->name('verify.email')->middleware('signed');
+    //end verify email
+
+    
 });
