@@ -27,11 +27,13 @@ class CartController extends Controller
     // Retrieve productId from the request
     // dd($request->all());
     $productId = $request->input('productId');
-    
-    DB::table('product_cart')->insert([
-        'product_id' => $productId,
-        'cart_id' => $cart->id,
-    ]);
+    if(!ProductCart::where('product_id',$productId)->first()){
+
+        DB::table('product_cart')->insert([
+            'product_id' => $productId,
+            'cart_id' => $cart->id,
+        ]);
+    }
     return response()->json(['message' => 'Product added to cart successfully'], 200);
     
     }

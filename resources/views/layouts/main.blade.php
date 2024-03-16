@@ -281,6 +281,8 @@
 	</div>
 	<!-- end copyright -->
 	
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="{{ asset('assets/js/kotta.js') }}"></script>
 	<!-- jquery -->
 	<script src="{{ asset('assets/js/jquery-1.11.3.min.js') }}"></script>
 	<!-- bootstrap -->

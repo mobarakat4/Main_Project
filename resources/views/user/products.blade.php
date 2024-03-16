@@ -200,28 +200,7 @@
 		</div>
 	</div> --}}
 	<!-- end product section -->
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-<script>
-    function addToCart(Id) {
-        // Send a POST request to your Laravel route
-        axios.post('/add-to-cart', {
-            // Data you want to send with the request
-            productId: Id
-        })
-        .then(function (response) {
-            // Handle success response
-            console.log(response.data);
-            // Optionally, you can redirect the user to the cart page or show a success message
-            // window.location.href = '/cart';
-        })
-        .catch(function (error) {
-            // Handle error
-            console.log(error);
-            // Optionally, you can show an error message to the user
-        });
-    }
-</script>
 
 
 @endsection

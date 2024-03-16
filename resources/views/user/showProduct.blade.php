@@ -38,18 +38,21 @@
 						<p>{{ $product->description }}</p>
 						<div class="single-product-form">
 							<form action="index.html">
-								<input type="number" placeholder="0">
+								<input type="number" placeholder="1">
 							</form>
-							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+							{{-- <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a> --}}
+							<button class="cart-btn my-butt" onclick="addToCart({{ $product->id }})">
+								<i class="fas fa-shopping-cart"></i> Add to Cart
+							</button>
 							{{-- <p><strong>Categories: </strong>Fruits, Organic</p> --}}
 						</div>
-						<h4>Share:</h4>
+						{{-- <h4>Share:</h4>
 						<ul class="product-share">
 							<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href=""><i class="fab fa-twitter"></i></a></li>
 							<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
 							<li><a href=""><i class="fab fa-linkedin"></i></a></li>
-						</ul>
+						</ul> --}}
 					</div>
 				</div>
 			</div>
