@@ -22,7 +22,8 @@ class ProductController extends Controller
     }
     public function show($id){
         $product= Product::find($id);
-        
-        return view('user.showProduct',['product'=>$product]);
+        $relatedProducts = Product::whereNotIn('id', [$id])->where('category_id',$product->category_id)->get();
+        // dd($relatedProducts);
+        return view('user.showProduct',['product'=>$product,'relatedProducts'=>$relatedProducts]);
     }
 }

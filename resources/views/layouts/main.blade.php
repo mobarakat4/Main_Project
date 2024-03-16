@@ -31,14 +31,8 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 	<!-- responsive -->
 	<link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
-	<style>
-		.site-logo img{
-			height: 50px;
-		}
-		.my-active{
-			color:#fd7e14 !important;
-		}
-	</style>
+	<link rel="stylesheet" href="{{ asset('assets/css/kotta.css') }}">
+	
 
 </head>
 <body>

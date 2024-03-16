@@ -13,12 +13,7 @@
         
         
     }
-	.my-butt{
-		color:black;
-		background-color: #ed8210;
-		border-radius: 10px;
-		
-	}
+	
     </style>
 @endsection
 
@@ -48,14 +43,14 @@
                 @foreach ($products as $product)
                     
                 <div class="col-lg-4 col-md-6 text-center {{ $product->category->name }}">
-                    <div class="single-product-item my-cat">
+                    <div class="single-product-item  ">
                         <div class="product-image">
                             <a href="{{ route('products.show', ['id' => $product->id])  }}"><img width="243" height="243" src="{{ asset("$product->image_path") }}" alt=""></a>
                         </div>
                         <h3>{{ $product->name }}</h3>
-                        <p class="product-price"><span>Per One</span> {{ $product->price }}$ </p>
+                        <p class="product-price "><span>Per One</span> {{ $product->price }}$ </p>
                         {{-- <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a> --}}
-						<button class="cart-btn my-butt" onclick="addToCart({{ $product->id }})">
+						<button class="cart-btn pr-butt" onclick="addToCart({{ $product->id }})">
 							<i class="fas fa-shopping-cart"></i> Add to Cart
 						</button>
 						

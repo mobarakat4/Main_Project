@@ -4,7 +4,8 @@
     one-products
 @endsection
 @section('style')
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
 @section('content')
     	<!-- breadcrumb-section -->
@@ -37,13 +38,19 @@
 						<p class="single-product-pricing"><span>Per one</span> ${{ $product->price }}</p>
 						<p>{{ $product->description }}</p>
 						<div class="single-product-form">
-							<form action="index.html">
+							{{-- <form action="index.html">
 								<input type="number" placeholder="1">
-							</form>
+							</form> --}}
+							<button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#myModal">
+								Rate the pet
+							</button>
+							<br>
 							{{-- <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a> --}}
-							<button class="cart-btn my-butt" onclick="addToCart({{ $product->id }})">
+							<button class="cart-btn pr-butt" onclick="addToCart({{ $product->id }})">
 								<i class="fas fa-shopping-cart"></i> Add to Cart
 							</button>
+							<br>
+							
 							{{-- <p><strong>Categories: </strong>Fruits, Organic</p> --}}
 						</div>
 						{{-- <h4>Share:</h4>
@@ -59,7 +66,51 @@
 		</div>
 	</div>
 	<!-- end single product -->
-
+	<div class="modal" id="myModal">
+		<div class="modal-dialog modal-dialog-centered">
+		  <div class="modal-content">
+	  
+			<!-- Modal Header -->
+			<div class="modal-header">
+			  <h4 class="modal-title">Rate</h4>
+			  
+			  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+	  
+			<!-- Modal body -->
+			<div class="modal-body">
+				<form action="{{ route('rate.store') }}" method="POST">
+					@csrf
+					<h3>Rating:</h3>
+					<div class="rating">
+						<input type="radio" id="star5" name="rating" value="5">
+						<label for="star5"></label>
+						<input type="radio" id="star4" name="rating" value="4">
+						<label for="star4"></label>
+						<input type="radio" id="star3" name="rating" value="3">
+						<label for="star3"></label>
+						<input type="radio" id="star2" name="rating" value="2">
+						<label for="star2"></label>
+						<input type="radio" id="star1" name="rating" value="1">
+						<label for="star1"></label>
+					</div>
+					<div>
+						<label for="comment"><h4>Comment:</h4></label>
+						<br>
+						<textarea name="comment" id="" cols="30" rows="2"></textarea>
+					</div>
+				</div>
+				
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-info" data-bs-dismiss="modal">Create</button>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+				</div>
+			</form>
+	  
+		  </div>
+		</div>
+	  </div>
 	<!-- more products -->
 	<div class="more-products mb-150">
 		<div class="container">
@@ -67,12 +118,28 @@
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
 						<h3><span class="orange-text">Related</span> Products</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-4 col-md-6 text-center">
+				@foreach ($relatedProducts as $product)
+                    
+                <div class="col-lg-4 col-md-6 text-center {{ $product->category->name }}">
+                    <div class="single-product-item  ">
+                        <div class="product-image">
+                            <a href="{{ route('products.show', ['id' => $product->id])  }}"><img width="243" height="243" src="{{ asset("$product->image_path") }}" alt=""></a>
+                        </div>
+                        <h3>{{ $product->name }}</h3>
+                        <p class="product-price "><span>Per One</span> {{ $product->price }}$ </p>
+                        {{-- <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a> --}}
+						<button class="cart-btn pr-butt" onclick="addToCart({{ $product->id }})">
+							<i class="fas fa-shopping-cart"></i> Add to Cart
+						</button>
+						
+                    </div>
+                </div>
+                @endforeach
+				{{-- <div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
 							<a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
@@ -101,7 +168,7 @@
 						<p class="product-price"><span>Per Kg</span> 35$ </p>
 						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</div>

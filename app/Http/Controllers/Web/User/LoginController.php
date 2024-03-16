@@ -22,11 +22,17 @@ class LoginController extends Controller
     }
     public function login(LoginRequest $request){
         $user=User::where('username',$request->username)->first();
-            if(!$user->email_verified_at){
-                Mail::to($user->email)->send(new VerifyEmail($user->email));
-                return to_route('user.login')->with(['error'=>'we sent you verify email,please verify first']);
-                
-            }
+        // check if user exist 
+        if(!$user){
+            return redirect()->route('show_login_page')->with(['error'=>'invalid username']);
+        }
+        // check if email is verified
+        if(!$user->email_verified_at){
+            Mail::to($user->email)->send(new VerifyEmail($user->email));
+            return to_route('user.login')->with(['error'=>'we sent you verify email,please verify first']);
+            
+        }
+        // authenticate the user and redirect to home page
         if(auth()->guard('user')->attempt(['username'=>$request->input('username'),'password'=>$request->input('password')]))
         {
             
@@ -42,9 +48,11 @@ class LoginController extends Controller
 
         // ---------------------register------------------
         public function show_register_page(){
+            // show register page
             return view('user.auth.register');
         }
         public function register(RegisterRequest $request){
+            
             $request->validated();
             $userdata=[
                 'name' => $request->name,

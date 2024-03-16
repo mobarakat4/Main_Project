@@ -3,27 +3,11 @@
 
 @section('title')
 
-categories
+Categories
 @endsection
 
 
-@section('style')
-<style>
-    
-    .my-cat{
-    justify-content: space-between;
-    flex-direction: column;
-    display: flex;
-    height: 400px;
-    }
-    .cat-img{
-        height: 250px;
-        width: 250px;
-        display: block;
 
-    }
-</style>
-@endsection
 
 @section('content')
 

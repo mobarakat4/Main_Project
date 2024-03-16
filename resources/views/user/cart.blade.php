@@ -1,17 +1,9 @@
 @extends('layouts.main')
 
 @section('title')
-    
+    Cart
 @endsection
-@section('style')
-<style>
-	.my-but{
-		padding:0;
-		border: none;
-		background-color: white;
-	}
-</style>
-@endsection
+
 
 @section('content')
 

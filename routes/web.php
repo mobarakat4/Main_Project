@@ -35,8 +35,18 @@ Route::get('/profile',[UserController::class,'profile'])->name('user.profile');
 Route::get('/info',function(){
     dd(auth()->user()->username);
 });
+//cart 
 Route::post('/add-to-cart',[CartController::class,'addToCart'])->name('add-to-cart');
 Route::delete('/cart/{productId}', [CartController::class,'removeFromCart'])->name('cart.remove');
+
+//rating
+Route::post('rate',function(){
+    dd(request()->all());
+})->name('rate.store');
+
+
+
+//logout
 Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout');
 });
 
