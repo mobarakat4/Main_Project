@@ -5,6 +5,7 @@ use App\Http\Controllers\Web\User\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\User\CategoryController;
 use App\Http\Controllers\Web\User\ProductController;
+use App\Http\Controllers\Web\User\RatingController;
 use App\Http\Controllers\Web\User\UserController;
 
 /*
@@ -40,9 +41,7 @@ Route::post('/add-to-cart',[CartController::class,'addToCart'])->name('add-to-ca
 Route::delete('/cart/{productId}', [CartController::class,'removeFromCart'])->name('cart.remove');
 
 //rating
-Route::post('rate',function(){
-    dd(request()->all());
-})->name('rate.store');
+Route::post('rate/{id}',[RatingController::class,'store'])->name('rate.store');
 
 
 

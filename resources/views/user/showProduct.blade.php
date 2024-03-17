@@ -79,7 +79,7 @@
 	  
 			<!-- Modal body -->
 			<div class="modal-body">
-				<form action="{{ route('rate.store') }}" method="POST">
+				<form action="{{ route('rate.store',['id'=>$product->id]) }}" method="POST">
 					@csrf
 					<h3>Rating:</h3>
 					<div class="rating">
