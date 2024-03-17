@@ -34,15 +34,27 @@
 				</div>
 				<div class="col-md-7">
 					<div class="single-product-content">
-						<h3>{{ $product->name }}</h3>
-						<p class="single-product-pricing"><span>Per one</span> ${{ $product->price }}</p>
-						<p>{{ $product->description }}</p>
-						<div class="single-product-form">
+					<h3>{{ $product->name }}</h3>
+					<div class="rating">
+						@for ($i = 1; $i <= 5; $i++)
+							@if ($i <= $avgRate)
+								<span class="star filled">&#9733;</span>
+							@else
+								<span class="star">&#9733;</span>
+							@endif
+						@endfor
+					</div>
+						{{-- <p class="single-product-pricing"><span>Per one</span> ${{ $product->price }}</p> --}}
+					<p>{{ $product->description }}</p>
+					<div class="single-product-form">
 							{{-- <form action="index.html">
 								<input type="number" placeholder="1">
 							</form> --}}
-							<button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#myModal">
+							<button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#createRate">
 								Rate the pet
+							</button>
+							<button type="button" class="btn btn-info mb-4" data-bs-toggle="modal" data-bs-target="#showRates">
+								show all rates
 							</button>
 							<br>
 							{{-- <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a> --}}
@@ -66,7 +78,7 @@
 		</div>
 	</div>
 	<!-- end single product -->
-	<div class="modal" id="myModal">
+	<div class="modal" id="createRate">
 		<div class="modal-dialog modal-dialog-centered">
 		  <div class="modal-content">
 	  
@@ -110,7 +122,57 @@
 	  
 		  </div>
 		</div>
-	  </div>
+	</div>
+	<div class="modal" id="showRates">
+		<div class="modal-dialog modal-dialog-centered">
+		    <div class="modal-content">
+	  
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">All Rates</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+			
+				<!-- Modal body -->
+				<div class="modal-body">
+					<div class="comments">
+						@foreach ($rates as $rate)
+								
+							<div class="comment border p-4" >
+								<div class="comment-header">
+									<strong>{{ $rate->user->username }}</strong>
+									<span class="comment-date">Posted on: {{ $rate->created_at }}</span>
+								</div>
+								<div class="comment-body">
+									<div class="rating">
+										@for ($i = 1; $i <= 5; $i++)
+										@if ($i <= $rate->rating)
+											<span class="star filled">&#9733;</span>
+										@else
+											<span class="star">&#9733;</span>
+										@endif
+										@endfor
+									</div>
+									<div>
+										{{ $rate->comment }}
+									</div>
+								</div>
+							</div>
+						@endforeach
+							
+						
+						
+					</div>
+				</div>
+			
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+				</div>
+	  
+		    </div>
+		</div>
+	</div>
 	<!-- more products -->
 	<div class="more-products mb-150">
 		<div class="container">

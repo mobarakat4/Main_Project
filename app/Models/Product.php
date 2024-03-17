@@ -18,6 +18,10 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
     public function carts(): BelongsToMany
     {
         return $this->belongsToMany(Cart::class,'product_cart');

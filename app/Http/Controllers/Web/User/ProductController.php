@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
+use App\Models\Rating;
 use Directory;
 
 class ProductController extends Controller
@@ -23,7 +24,14 @@ class ProductController extends Controller
     public function show($id){
         $product= Product::find($id);
         $relatedProducts = Product::whereNotIn('id', [$id])->where('category_id',$product->category_id)->get();
+        $averageRating = $product->ratings()->avg('rating');
+        $rates = Rating::where('product_id',$id)->get();
         // dd($product->category);
-        return view('user.showProduct',['product'=>$product,'relatedProducts'=>$relatedProducts]);
+        return view('user.showProduct',[
+            'product'=>$product,
+            'relatedProducts'=>$relatedProducts,
+            'avgRate'=>$averageRating,
+            'rates'=>$rates
+            ]);
     }
 }

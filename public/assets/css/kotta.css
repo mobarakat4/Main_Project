@@ -64,3 +64,15 @@
 .rating label:hover ~ label {
     color: #f39c12;
 }
+
+.rating {
+    font-size: 24px;
+}
+
+.star {
+    color: #ccc; /* Empty star color */
+}
+
+.filled {
+    color: #f39c12; /* Filled star color */
+}
