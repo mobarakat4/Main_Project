@@ -45,7 +45,7 @@
         <span class="alert alert-danger">{{ $message }}</span>
     @enderror
     @if(session('success'))
-        <span class="alert alert-seccess">{{ session('success') }}</span>
+        <span class="alert alert-success">{{ session('success') }}</span>
     @endisset
     <div class="card-body">
       <div class="d-flex align-items-start align-items-sm-center my-4 gap-4">
