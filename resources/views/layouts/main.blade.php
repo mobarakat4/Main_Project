@@ -70,32 +70,7 @@
 								</li>
 								<li {{ Request::is('category') ? "class=current-list-item" : '' }}><a href="{{ route('category.index') }}">Categories</a></li>
 								<li {{ Request::is('products') ? "class=current-list-item" : '' }}><a href="{{ route('product.index') }}">Products</a></li>
-								{{-- <li><a href="#">Pages</a>
-									<ul class="sub-menu">
-										<li><a href="404.html">404 page</a></li>
-										<li><a href="about.html">About</a></li>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="contact.html">Contact</a></li>
-										<li><a href="news.html">News</a></li>
-										<li><a href="shop.html">Shop</a></li>
-									</ul>
-								</li>
-								<li><a href="news.html">News</a>
-									<ul class="sub-menu">
-										<li><a href="news.html">News</a></li>
-										<li><a href="single-news.html">Single News</a></li>
-									</ul>
-								</li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="shop.html">Shop</a>
-									<ul class="sub-menu">
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-										<li><a href="cart.html">Cart</a></li>
-									</ul>
-								</li> --}}
+							
 								<li>
 									<div class="header-icons">
 										<a {{ Request::is('cart') ? "class=my-active" : '' }} class="shopping-cart " href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart " ></i></a>
@@ -126,9 +101,12 @@
 					<span class="close-btn"><i class="fas fa-window-close"></i></span>
 					<div class="search-bar">
 						<div class="search-bar-tablecell">
-							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
-							<button type="submit">Search <i class="fas fa-search"></i></button>
+							<form action="{{ route('user.search') }} " method="GET">
+								
+								<h3>Search For:</h3>
+								<input type="text" name="search" placeholder="Keywords">
+								<button type="submit">Search <i class="fas fa-search"></i></button>
+							</form>
 						</div>
 					</div>
 				</div>

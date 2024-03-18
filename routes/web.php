@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\User\CategoryController;
 use App\Http\Controllers\Web\User\ProductController;
 use App\Http\Controllers\Web\User\RatingController;
+use App\Http\Controllers\Web\User\SearchController;
 use App\Http\Controllers\Web\User\UserController;
 
 /*
@@ -34,6 +35,8 @@ Route::get('/profile',[UserController::class,'profile'])->name('user.profile');
 Route::put('/profile',[UserController::class,'update'])->name('profile.update');
 Route::put('/profile/image',[UserController::class,'updateImage'])->name('profile.update.image');
 
+//serech
+Route::get('search',[SearchController::class,'index'])->name('user.search');
 
 //test
 Route::get('/info',function(){
