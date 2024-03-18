@@ -31,6 +31,8 @@ Route::get('/products/{id}',[ProductController::class,'show'])->name('products.s
 Route::get('/cart',[CartController::class,'index'])->name('cart.index');
 //profile details
 Route::get('/profile',[UserController::class,'profile'])->name('user.profile');
+Route::put('/profile',[UserController::class,'updateImage'])->name('profile.update.image');
+
 
 //test
 Route::get('/info',function(){
