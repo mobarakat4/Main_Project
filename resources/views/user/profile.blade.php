@@ -85,7 +85,18 @@
     </div>
     <hr class="my-0" />
     <div class="card-body">
-      <form id="formAccountSettings" method="POST" onsubmit="return false">
+      @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+      @endif
+      <form id="formAccountSettings" action="{{ route('profile.update') }}" method="POST" >
+        @method('PUT')
+        @csrf
         <div class="row">
           <div class="mb-3 col-md-6">
             <label for="Name" class="form-label">Name</label>
@@ -95,7 +106,6 @@
               id="Name"
               name="name"
               value="{{ auth()->user()->name }}"
-              {{-- autofocus --}}
             />
           </div>
          
@@ -118,7 +128,7 @@
               <input
                 type="text"
                 id="phoneNumber"
-                name="phoneNumber"
+                name="phone"
                 class="form-control"
                 value="{{ auth()->user()->phone ? auth()->user()->phone : '' }}"
                 placeholder="202 555 0111"
@@ -127,7 +137,14 @@
           </div>
           <div class="mb-3 col-md-6">
             <label for="address" class="form-label">Address</label>
-            <input type="text" value="{{ auth()->user()->address ? auth()->user()->address : '' }}" class="form-control" id="address" name="address" placeholder="Address" />
+            <input 
+            type="text" 
+            value="{{ auth()->user()->address ? auth()->user()->address : '' }}" 
+            class="form-control" 
+            id="address" 
+            name="address" 
+            placeholder="Address" 
+            />
           </div>
           
           
