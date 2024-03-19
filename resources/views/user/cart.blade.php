@@ -4,23 +4,11 @@
     Cart
 @endsection
 
+@section('header')
+    @include('user.components.headers.cart')
+@endsection
 
 @section('content')
-
-	<!-- breadcrumb-section -->
-	<div class="breadcrumb-section breadcrumb-bg">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
-						<h1>Cart</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end breadcrumb section -->
 
 	<!-- cart -->
 	<div class="cart-section mt-150 mb-150">
@@ -85,12 +73,12 @@
 							</tbody>
 						</table>
 						<div class="cart-buttons">
-							<a href="cart.html" class="boxed-btn">Update Cart</a>
-							<a href="checkout.html" class="boxed-btn black">Check Out</a>
+							<a href="/cart" class="boxed-btn">Update Cart</a>
+							<a href="#" class="boxed-btn black">Check Out</a>
 						</div>
 					</div>
 
-					<div class="coupon-section">
+					{{-- <div class="coupon-section">
 						<h3>Apply Coupon</h3>
 						<div class="coupon-form-wrap">
 							<form action="index.html">
@@ -98,7 +86,7 @@
 								<p><input type="submit" value="Apply"></p>
 							</form>
 						</div>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 		</div>

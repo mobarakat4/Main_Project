@@ -7,7 +7,9 @@ Categories
 @endsection
 
 
-
+@section('header')
+    @include('user.components.headers.categories')
+@endsection
 
 @section('content')
 

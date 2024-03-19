@@ -16,7 +16,11 @@
 	
     </style>
 @endsection
-
+{{-- ------------------header-----------------  --}}
+@section('header')
+    @include('user.components.headers.products')
+@endsection
+{{-- ------------------content----------------- --}}
 @section('content')
 
     <!-- products -->

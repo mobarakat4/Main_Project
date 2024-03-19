@@ -36,6 +36,11 @@
     <script src="{{ asset('assets/js/config.js') }}"></script>
     
 @endsection
+
+@section('header')
+    @include('user.components.headers.profile')
+@endsection
+
 @section('content')
 
 <div class="container card my-4">

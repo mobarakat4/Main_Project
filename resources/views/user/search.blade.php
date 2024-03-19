@@ -2,6 +2,9 @@
 @section('title')
     search
 @endsection
+@section('header')
+    @include('user.components.headers.search')
+@endsection
 @section('content')
 
     <div class="container mt-4 mb-4">
