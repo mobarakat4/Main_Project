@@ -1,0 +1,28 @@
+#this is shipping table some of the columns are optional
+
+Shipping Information Table:
+    shipping_id (Primary Key)
+    order_id (Foreign Key referencing the Order table)
+    recipient_name
+    address_line_1
+    address_line_2 (optional)
+    city
+    state/province
+    postal_code
+    country
+    phone_number
+    shipping_method (e.g., standard, expedited)
+    tracking_number
+    shipping_status (e.g., pending, shipped, delivered)
+
+    ------------------------------------------------------------
+
+    shipping_id: A unique identifier for each shipping record.
+    order_id: A foreign key referencing the order for which this shipping information is associated.
+    recipient_name: The name of the person who will receive the shipment.
+    address_line_1, address_line_2: The address where the shipment will be delivered. It might include additional details if necessary.
+    city, state/province, postal_code, country: Details of the recipient's location for delivery.
+    phone_number: Contact number of the recipient, which might be useful for the shipping carrier.
+    shipping_method: The method used for shipping, such as standard or expedited.
+    tracking_number: A unique identifier provided by the shipping carrier to track the shipment.
+    shipping_status: The status of the shipment, which could include stages like pending, shipped, out for delivery, delivered, etc.
