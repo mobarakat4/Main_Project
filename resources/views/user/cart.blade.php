@@ -35,7 +35,7 @@
 										{{-- <a href="#"><i class="far fa-window-close"></i></a> --}}
 										<button class="my-but" onclick="removeFromCart({{ $product->id }})"><i class="far fa-window-close"></i></button>
 									</td>
-									<td class="product-image"><img src={{ $product->image_path }} alt=""></td>
+									<td class="product-image"><img src={{ asset("assets/img/products/$product->image_path") }} alt=""></td>
 									<td class="product-name">{{ $product->name }}</td>
 									<td class="product-price">${{ $product->price }}</td>
 									{{-- <td class="product-quantity"><input type="number"  placeholder="1"></td> --}}
@@ -73,8 +73,8 @@
 							</tbody>
 						</table>
 						<div class="cart-buttons">
-							<a href="/cart" class="boxed-btn">Update Cart</a>
-							<a href="#" class="boxed-btn black">Check Out</a>
+							<a href="{{ route('cart.index') }}" class="boxed-btn">Update Cart</a>
+							<a href="{{ route('order.create') }}" class="boxed-btn black">Check Out</a>
 						</div>
 					</div>
 

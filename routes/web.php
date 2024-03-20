@@ -4,6 +4,7 @@ use App\Http\Controllers\Web\User\CartController;
 use App\Http\Controllers\Web\User\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\User\CategoryController;
+use App\Http\Controllers\Web\User\OrderController;
 use App\Http\Controllers\Web\User\ProductController;
 use App\Http\Controllers\Web\User\RatingController;
 use App\Http\Controllers\Web\User\SearchController;
@@ -45,7 +46,9 @@ Route::get('/info',function(){
 //cart 
 Route::post('/add-to-cart',[CartController::class,'addToCart'])->name('add-to-cart');
 Route::delete('/cart/{productId}', [CartController::class,'removeFromCart'])->name('cart.remove');
-
+//order
+Route::get('order/create',[OrderController::class,'create'])->name('order.create');
+Route::post('order/checkout',[OrderController::class,'checkout'])->name('order.checkout');
 //rating
 Route::post('rate/{id}',[RatingController::class,'store'])->name('rate.store');
 
