@@ -49,6 +49,8 @@ Route::delete('/cart/{productId}', [CartController::class,'removeFromCart'])->na
 //order
 Route::get('order/create',[OrderController::class,'create'])->name('order.create');
 Route::post('order/checkout',[OrderController::class,'checkout'])->name('order.checkout');
+Route::get('/success', [OrderController::class, 'success'])->name('checkout.success');
+Route::get('/cancel', [OrderController::class, 'cancel'])->name('checkout.cancel');
 //rating
 Route::post('rate/{id}',[RatingController::class,'store'])->name('rate.store');
 

@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade');
             $table->foreignId('cart_id')->constrained('carts')->onUpdate('cascade');
             $table->float('total_price',8,2)->nullable();
-            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('status')->default(0);// 0 -> still not paid , 1=> paid     
+            $table->string('session_id');
             $table->timestamps();
         });
     }
