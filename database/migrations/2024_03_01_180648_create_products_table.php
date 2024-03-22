@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('name_ar')->nullable();
-            $table->integer('count');
-            $table->tinyInteger('active');
+            $table->text('description');
+            $table->integer('count')->default(10);
+            $table->tinyInteger('active')->default(1);
             $table->float('price',8,2);
             $table->string('image_path')->nullable();
             $table->foreignId('category_id')->constrained(

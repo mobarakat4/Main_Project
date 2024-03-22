@@ -32,7 +32,7 @@
 			<div class="row">
 				<div class="col-md-5">
 					<div class="single-product-img">
-						<img width="100%" height="100%" src="{{ asset("$product->image_path") }}" alt="">
+						<img width="100%" height="100%" src="{{ asset("assets/img/products/$product->image_path") }}" alt="">
 					</div>
 				</div>
 				<div class="col-md-7">

@@ -52,7 +52,7 @@
                             <a href="{{ route('products.show', ['id' => $product->id])  }}"><img width="243" height="243" src="{{ asset("assets/img/products/$product->image_path") }}" alt=""></a>
                         </div>
                         <h3>{{ $product->name }}</h3>
-                        <p class="product-price "><span>Per One</span> {{ $product->price }}$ </p>
+                        {{-- <p class="product-price "><span>Per One</span> {{ $product->price }}$ </p> --}}
                         {{-- <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a> --}}
 						<button class="cart-btn pr-butt" onclick="addToCart({{ $product->id }})">
 							<i class="fas fa-shopping-cart"></i> Add to Cart
