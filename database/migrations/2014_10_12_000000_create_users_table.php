@@ -35,6 +35,7 @@ return new class extends Migration
              'email'=>'user@gmail.com',
              'username'=>'user',
              'password'=>Hash::make("user123"),
+             'email_verified_at'=>now()
              
             ],
           
