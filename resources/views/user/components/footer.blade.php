@@ -60,7 +60,7 @@
 							<li><a href="https://www.facebook.com/profile.php?id=100021098717288" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="https://twitter.com/Mohamed10917919" target="_blank"><i class="fab fa-twitter"></i></a></li>
 							<li><a href="https://www.instagram.com/mo_barakat.21/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="www.linkedin.com/in/mohamed-barakat-a818a321a" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="https://www.linkedin.com/in/mohamed-barakat-a818a321a/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
 							{{-- <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li> --}}
 						</ul>
 					</div>

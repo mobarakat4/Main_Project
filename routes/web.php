@@ -21,43 +21,43 @@ use App\Http\Controllers\Web\User\UserController;
 |
 */
 Route::middleware(['auth:user','verified'])->group(function () {
-Route::get('/', function () {
-    return view('user.welcome');
-})->name('user.home');
-Route::get('/category',[CategoryController::class,'index'])->name('category.index');
-//all products
-Route::get('/products',[ProductController::class,'index'])->name('product.index');
-//product details
-Route::get('/products/{id}',[ProductController::class,'show'])->name('products.show');
-//all product in one cart
-Route::get('/cart',[CartController::class,'index'])->name('cart.index');
-//profile details
-Route::get('/profile',[UserController::class,'profile'])->name('user.profile');
-Route::put('/profile',[UserController::class,'update'])->name('profile.update');
-Route::put('/profile/image',[UserController::class,'updateImage'])->name('profile.update.image');
+    Route::get('/', function () {
+        return view('user.welcome');
+    })->name('user.home');
+    Route::get('/category',[CategoryController::class,'index'])->name('category.index');
+    //all products
+    Route::get('/products',[ProductController::class,'index'])->name('product.index');
+    //product details
+    Route::get('/products/{id}',[ProductController::class,'show'])->name('products.show');
+    //all product in one cart
+    Route::get('/cart',[CartController::class,'index'])->name('cart.index');
+    //profile details
+    Route::get('/profile',[UserController::class,'profile'])->name('user.profile');
+    Route::put('/profile',[UserController::class,'update'])->name('profile.update');
+    Route::put('/profile/image',[UserController::class,'updateImage'])->name('profile.update.image');
 
-//serech
-Route::get('search',[SearchController::class,'index'])->name('user.search');
+    //serech
+    Route::get('search',[SearchController::class,'index'])->name('user.search');
 
-//test
-Route::get('/info',function(){
-    dd(auth()->user()->username);
-});
-//cart 
-Route::post('/add-to-cart',[CartController::class,'addToCart'])->name('add-to-cart');
-Route::delete('/cart/{productId}', [CartController::class,'removeFromCart'])->name('cart.remove');
-//order
-Route::get('order/create',[OrderController::class,'create'])->name('order.create');
-Route::post('order/checkout',[OrderController::class,'checkout'])->name('order.checkout');
-Route::get('/success', [OrderController::class, 'success'])->name('checkout.success');
-Route::get('/cancel', [OrderController::class, 'cancel'])->name('checkout.cancel');
-//rating
-Route::post('rate/{id}',[RatingController::class,'store'])->name('rate.store');
+    //test
+    Route::get('/info',function(){
+        dd(auth()->user()->username);
+    });
+    //cart 
+    Route::post('/add-to-cart',[CartController::class,'addToCart'])->name('add-to-cart');
+    Route::delete('/cart/{productId}', [CartController::class,'removeFromCart'])->name('cart.remove');
+    //order
+    Route::get('order/create',[OrderController::class,'create'])->name('order.create');
+    Route::post('order/checkout',[OrderController::class,'checkout'])->name('order.checkout');
+    Route::get('/success', [OrderController::class, 'success'])->name('checkout.success');
+    Route::get('/cancel', [OrderController::class, 'cancel'])->name('checkout.cancel');
+    //rating
+    Route::post('rate/{id}',[RatingController::class,'store'])->name('rate.store');
 
 
 
-//logout
-Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout');
+    //logout
+    Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout');
 });
 
 
@@ -88,4 +88,7 @@ Route::middleware('guest:user')->group(function () {
     //end verify email
 
     
+});
+Route::get('tester',function(){
+    return view('user.test');
 });

@@ -63,10 +63,10 @@
 						<nav class="main-menu">
 							<ul>
 								<li class="{{ Request::is('/') ? 'current-list-item' : '' }}"><a href="/">Home</a>
-									<ul class="sub-menu">
+									{{-- <ul class="sub-menu">
 										<li><a href="index.html">Static Home</a></li>
 										<li><a href="index_2.html">Slider Home</a></li>
-									</ul>
+									</ul> --}}
 								</li>
 								<li {{ Request::is('category') ? "class=current-list-item" : '' }}><a href="{{ route('category.index') }}">Categories</a></li>
 								<li {{ Request::is('products') ? "class=current-list-item" : '' }}><a href="{{ route('product.index') }}">Products</a></li>
