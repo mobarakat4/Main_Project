@@ -19,16 +19,16 @@ Categories
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center ">
-					<div class="section-title">	
+					<div class="section-title">
 						<h3><span class="orange-text">Our</span> Categories</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+						{{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p> --}}
 					</div>
 				</div>
 			</div>
 
 			<div class="row">
                 @foreach ($categories as $cat )
-                    
+
 				<div class="col-lg-4 col-md-6 text-center ">
 					<div class="single-product-item my-cat">
 						<div class="product-image">
@@ -58,5 +58,5 @@ Categories
 		</div>
 	</div>
 	<!-- end categories section -->
-    
+
 @endsection

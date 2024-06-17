@@ -47,12 +47,12 @@ return [
         'user' => [
             'driver' => 'session',
             'provider' => 'users',
-            
+
         ],
         'admin' => [
-            'driver' => 'sanctum',
+            'driver' => 'session',
             'provider' => 'admins',
-            
+
         ],
     ],
 

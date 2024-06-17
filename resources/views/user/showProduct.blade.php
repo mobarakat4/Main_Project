@@ -38,6 +38,7 @@
 				<div class="col-md-7">
 					<div class="single-product-content">
 					<h3>{{ $product->name }}</h3>
+					<h3>{{ $product->price }}$</h3>
 					<div class="rating">
 						@for ($i = 1; $i <= 5; $i++)
 							@if ($i <= $avgRate)
@@ -65,7 +66,7 @@
 								<i class="fas fa-shopping-cart"></i> Add to Cart
 							</button>
 							<br>
-							
+
 							{{-- <p><strong>Categories: </strong>Fruits, Organic</p> --}}
 						</div>
 						{{-- <h4>Share:</h4>
@@ -84,14 +85,14 @@
 	<div class="modal" id="createRate">
 		<div class="modal-dialog modal-dialog-centered">
 		  <div class="modal-content">
-	  
+
 			<!-- Modal Header -->
 			<div class="modal-header">
 			  <h4 class="modal-title">Rate</h4>
-			  
+
 			  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 			</div>
-	  
+
 			<!-- Modal body -->
 			<div class="modal-body">
 				<form action="{{ route('rate.store',['id'=>$product->id]) }}" method="POST">
@@ -115,32 +116,32 @@
 						<textarea name="comment" id="" cols="30" rows="2"></textarea>
 					</div>
 				</div>
-				
+
 				<!-- Modal footer -->
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-info" data-bs-dismiss="modal">Create</button>
 					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 				</div>
 			</form>
-	  
+
 		  </div>
 		</div>
 	</div>
 	<div class="modal" id="showRates">
 		<div class="modal-dialog modal-dialog-centered">
 		    <div class="modal-content">
-	  
+
 				<!-- Modal Header -->
 				<div class="modal-header">
 					<h4 class="modal-title">All Rates</h4>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 				</div>
-			
+
 				<!-- Modal body -->
 				<div class="modal-body">
 					<div class="comments">
 						@foreach ($rates as $rate)
-								
+
 							<div class="comment border p-4" >
 								<div class="comment-header">
 									<strong>{{ $rate->user->username }}</strong>
@@ -162,17 +163,17 @@
 								</div>
 							</div>
 						@endforeach
-							
-						
-						
+
+
+
 					</div>
 				</div>
-			
+
 				<!-- Modal footer -->
 				<div class="modal-footer">
 					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 				</div>
-	  
+
 		    </div>
 		</div>
 	</div>
@@ -181,18 +182,18 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="section-title">	
+					<div class="section-title">
 						<h3><span class="orange-text">Related</span> Products</h3>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				@foreach ($relatedProducts as $product)
-                    
+
                 <div class="col-lg-4 col-md-6 text-center {{ $product->category->name }}">
                     <div class="single-product-item  ">
                         <div class="product-image">
-                            <a href="{{ route('products.show', ['id' => $product->id])  }}"><img width="243" height="243" src="{{ asset("$product->image_path") }}" alt=""></a>
+                            <a href="{{ route('products.show', ['id' => $product->id])  }}"><img width="243" height="243" src="{{ asset("assets/img/products/$product->image_path") }}" alt=""></a>
                         </div>
                         <h3>{{ $product->name }}</h3>
                         <p class="product-price "><span>Per One</span> {{ $product->price }}$ </p>
@@ -200,7 +201,7 @@
 						<button class="cart-btn pr-butt" onclick="addToCart({{ $product->id }})">
 							<i class="fas fa-shopping-cart"></i> Add to Cart
 						</button>
-						
+
                     </div>
                 </div>
                 @endforeach

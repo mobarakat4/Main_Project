@@ -36,14 +36,27 @@ class ProductsTableSeeder extends Seeder
                 'active'=>1,
                 'price' => 59.99,
                 'description' => 'cute-golden-retriever',
-                'category_id'=>2, 
+                'category_id'=>2,
                 'image_path'=>'cute-golden-retriever_144627-26658.jpg', //change
                 // Add other columns here
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'name' => 'Bulldog',
+                'name_ar'=>'Bulldog',
+                'count'=>2,
+                'active'=>1,
+                'price' => 139,
+                'description' => 'cute-golden-retriever',
+                'category_id'=>2,
+                'image_path'=>'bulldog.jpg', //change
+                // Add other columns here
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
 
-            
+
         ];
         DB::table('products')->insert($products);
     }

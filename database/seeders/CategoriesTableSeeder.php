@@ -18,7 +18,7 @@ class CategoriesTableSeeder extends Seeder
             [
                 'name' => 'Cats',
                 'name_ar'=>'القطط',
-                'description' => 'cat category', 
+                'description' => 'cat category',
                 'image'=>'cat.jpg', //change
                 // Add other columns here
                 'created_at' => now(),
@@ -34,8 +34,17 @@ class CategoriesTableSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'name' => 'Birds',
+                'name_ar'=>'الطيور',
+                'description' => 'Bird category',
+                'image'=>'bird.jpg', //change
+                // Add other columns here
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
 
-            
+
         ];
         DB::table('categories')->insert($products);
     }
