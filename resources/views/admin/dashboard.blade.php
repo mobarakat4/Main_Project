@@ -3,10 +3,12 @@
 @section('title')
 DashBoard
 @endsection
-
+@section('head')
+  Dashboard
+@endsection
 @section('content')
 <div class="row">
-    <div class="col-lg-8 mb-4 order-0">
+    <div class="col-lg-12 mb-4 order-0">
       <div class="card">
         <div class="d-flex align-items-center row">
           <div class="col-sm-7">
@@ -31,23 +33,55 @@ DashBoard
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 order-1">
+    <div class="col-lg-6 col-md-6 order-1">
       <div class="row">
         <div class="col-lg-6 col-md-12 col-6 mb-4">
           <div class="card">
             <div class="card-body">
-              <h6 class="fw-semibold d-block mb-4 ">Total Products</h6>
-              <h3 class="card-title mb-2 ">6</h3>
-              <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +3</small>
+              <a href="">
+                <h6 class="fw-semibold d-block mb-4 ">Total Products</h6>
+                <h3 class="card-title mb-2 ">{{ $countProducts }}</h3>
+                <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +{{ $countNewProducts }}</small>
+              </a>
             </div>
           </div>
         </div>
         <div class="col-lg-6 col-md-12 col-6 mb-4">
           <div class="card">
             <div class="card-body">
-              <h6 class="fw-semibold d-block mb-4 ">Total Users</h6>
-              <h3 class="card-title text-nowrap mb-1">20</h3>
-              <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +4</small>
+              <a href="#">
+                <h6 class="fw-semibold d-block mb-4 ">Total Users</h6>
+                <h3 class="card-title text-nowrap mb-1">{{ $countUsers }}</h3>
+                <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +{{ $countNewUsers }}</small>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 order-1">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <a href="#">
+
+                <h6 class="fw-semibold d-block mb-4 ">Total Categories</h6>
+                <h3 class="card-title mb-2 ">{{ $countCategories }}</h3>
+                <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +{{ $countNewCategories }}</small>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <a href="#">
+
+                <h6 class="fw-semibold d-block mb-4 ">Total Orders</h6>
+                <h3 class="card-title text-nowrap mb-1">{{ $countOrders }}</h3>
+                <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +{{ $countNewOrders }}</small>
+              </a>
             </div>
           </div>
         </div>

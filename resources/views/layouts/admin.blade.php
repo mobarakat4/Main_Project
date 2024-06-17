@@ -74,7 +74,9 @@
             <!-- Content -->
             <div class="content-wrapper">
                 <div class="container-xxl flex-grow-1 container-p-y">
-                    
+                    <div>
+                      <h1>@yield('head')</h1>
+                    </div>
                     @yield('content')
                 </div>
             </div>
