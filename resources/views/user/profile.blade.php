@@ -34,7 +34,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('assets/js/config.js') }}"></script>
-    
+
 @endsection
 
 @section('header')
@@ -113,7 +113,7 @@
               value="{{ auth()->user()->name }}"
             />
           </div>
-         
+
           <div class="mb-3 col-md-6">
             <label for="email" class="form-label">E-mail</label>
             <input
@@ -125,7 +125,7 @@
               placeholder="john.doe@example.com"
             />
           </div>
-          
+
           <div class="mb-3 col-md-6">
             <label class="form-label" for="phoneNumber">Phone Number</label>
             <div class="input-group input-group-merge">
@@ -142,17 +142,17 @@
           </div>
           <div class="mb-3 col-md-6">
             <label for="address" class="form-label">Address</label>
-            <input 
-            type="text" 
-            value="{{ auth()->user()->address ? auth()->user()->address : '' }}" 
-            class="form-control" 
-            id="address" 
-            name="address" 
-            placeholder="Address" 
+            <input
+            type="text"
+            value="{{ auth()->user()->address ? auth()->user()->address : '' }}"
+            class="form-control"
+            id="address"
+            name="address"
+            placeholder="Address"
             />
           </div>
-          
-          
+
+
         </div>
         <div class="mt-2">
           <button type="submit" class="btn btn-primary me-2">Save changes</button>
@@ -161,8 +161,8 @@
       </form>
     </div>
     <!-- /Account -->
-  </div> 
-    
+  </div>
+
 @endsection
 @section('script')
         <!-- Core JS -->

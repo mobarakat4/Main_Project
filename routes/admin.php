@@ -9,3 +9,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[DashboardController::class,'index'])->name('dashboard');
 Route::get('/products',[ProductController::class,'index'])->name('admin.product.index');
 Route::get('/products/create',[ProductController::class,'create'])->name('admin.product.create');
+Route::post('/products/store',[ProductController::class,'store'])->name('admin.product.store');
