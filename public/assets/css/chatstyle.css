@@ -75,3 +75,41 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.icon-favourite {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ccc;
+    border: none; /* Remove any border */
+    background: none; /* Remove background color */
+    outline: none; /* Remove outline */
+    padding: 0; /* Remove padding */
+}
+.favourite-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none; /* Remove outline */
+}
+
+.icon-favourite.active {
+    color: red;
+}
+.favourite-btn:focus {
+    outline: none;
+}
+.pr-header{
+    display: flex;
+    justify-content: space-between;
+    margin:0 50px;
+}
+.fav-icon {
+    font-size: 17px;
+}
+.fav-active{
+    color: #F28123;
+}
+.fa-hov:hover{
+    color: #F28123;
+    transition: color 0.2s ease;
+}

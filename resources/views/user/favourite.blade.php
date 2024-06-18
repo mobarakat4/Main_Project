@@ -1,11 +1,10 @@
 @extends('layouts.main')
 
 @section('title')
-    products
+    Favourites Products
 @endsection
 @section('style')
 <style>
-
 
     .cat-img{
         height: 243px;
@@ -18,7 +17,7 @@
 @endsection
 {{-- ------------------header-----------------  --}}
 @section('header')
-    @include('user.components.headers.products')
+    @include('user.components.headers.favourites')
 @endsection
 {{-- ------------------content----------------- --}}
 @section('content')
@@ -27,7 +26,7 @@
 	<div class="product-section mt-150 mb-150">
 		<div class="container">
 
-			<div class="row">
+			{{-- <div class="row">
                 <div class="col-md-12">
                     <div class="product-filters">
                         <ul>
@@ -39,10 +38,10 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
 			<div class="row product-lists">
-                @foreach ($products as $product)
+                @foreach ($favouriteProducts as $product)
 
                 <div class="col-lg-4 col-md-6 text-center {{ $product->category->name }}">
                     <div class="single-product-item  ">
@@ -54,7 +53,7 @@
                                 @if(Auth::user()->favourites->contains($product->id))
                                     <i class="fas fa-heart icon-favourite active"></i>
                                 @else
-                                    <i class="fas fa-heart icon-favourite "></i>
+                                    <i class="fas fa-heart icon-favourite ">dsfsdf</i>
                                 @endif
                             </button>
                         </h3>

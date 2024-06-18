@@ -10,7 +10,7 @@
 	<!-- title -->
 	<title>@yield('title')</title>
 	@yield('style')
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 	<!-- favicon -->
 	<link rel="icon" type="image/x-icon" href="{{ asset('assets/img/pet-shop_8334320.png') }}" />
 	<!-- google font -->
@@ -76,6 +76,7 @@
 
 								<li>
 									<div class="header-icons">
+										<a  href="{{ route('favourites.index') }}"><i class=" {{ Request::is('favourites') ? "fav-active" : 'fa-hov' }} fas fa-heart fav-icon icon-favourite" ></i></a>
 										<a {{ Request::is('cart') ? "class=my-active" : '' }} class="shopping-cart " href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart " ></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 										<a  {{ Request::is('profile') ? "class=my-active" : '' }} href="{{ route('user.profile') }}">{{ auth()->user()->username }}</a>

@@ -10,6 +10,9 @@ use App\Http\Controllers\Web\User\RatingController;
 use App\Http\Controllers\Web\User\SearchController;
 use App\Http\Controllers\Web\User\UserController;
 use App\Http\Controllers\Web\User\ChatController;
+use App\Http\Controllers\Web\User\FavouriteController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +40,10 @@ Route::middleware(['auth:user','verified'])->group(function () {
     Route::put('/profile/image',[UserController::class,'updateImage'])->name('profile.update.image');
     //chat
     Route::post('/chat', [ChatController::class, 'sendMessage']);
+    //favourite
+    Route::get('/favourites', [FavouriteController::class, 'index'])->name('favourites.index')->middleware('auth');
+
+    Route::post('/favourites/{product}', [FavouriteController::class, 'toggleFavourite'])->name('favourites.toggle');
     //serech
     Route::get('search',[SearchController::class,'index'])->name('user.search');
 

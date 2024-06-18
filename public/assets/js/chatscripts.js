@@ -59,3 +59,31 @@ document.addEventListener('DOMContentLoaded', function() {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 });
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.favourite-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.dataset.productId;
+            const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            const icon = this.querySelector('.icon-favourite');
+
+            fetch(`/favourites/${productId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': token
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'added') {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas', 'active');
+                } else {
+                    icon.classList.remove('fas', 'active');
+                    icon.classList.add('far');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+});
