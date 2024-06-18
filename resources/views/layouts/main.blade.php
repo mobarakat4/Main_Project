@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<!-- title -->
 	<title>@yield('title')</title>
@@ -32,11 +33,13 @@
 	<!-- responsive -->
 	<link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/kotta.css') }}">
-	
+    <link rel="stylesheet" href="{{ asset('assets/css/chatstyle.css')}}">
+
+
 
 </head>
 <body>
-	
+
 	<!--PreLoader-->
     <div class="loader">
         <div class="loader-inner">
@@ -44,7 +47,7 @@
         </div>
     </div>
     <!--PreLoader Ends-->
-	
+
 	<!-- header -->
 	<div class="top-header-area" id="sticker">
 		<div class="container">
@@ -70,16 +73,16 @@
 								</li>
 								<li {{ Request::is('category') ? "class=current-list-item" : '' }}><a href="{{ route('category.index') }}">Categories</a></li>
 								<li {{ Request::is('products') ? "class=current-list-item" : '' }}><a href="{{ route('product.index') }}">Products</a></li>
-							
+
 								<li>
 									<div class="header-icons">
 										<a {{ Request::is('cart') ? "class=my-active" : '' }} class="shopping-cart " href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart " ></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 										<a  {{ Request::is('profile') ? "class=my-active" : '' }} href="{{ route('user.profile') }}">{{ auth()->user()->username }}</a>
 										<a href="{{ route('user.logout') }}">log out</a>
-										
+
 									</div>
-									
+
 								</li>
 							</ul>
 						</nav>
@@ -92,7 +95,7 @@
 		</div>
 	</div>
 	<!-- end header -->
-	
+
 	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
@@ -102,7 +105,7 @@
 					<div class="search-bar">
 						<div class="search-bar-tablecell">
 							<form action="{{ route('user.search') }} " method="GET">
-								
+
 								<h3>Search For:</h3>
 								<input type="text" name="search" placeholder="Keywords">
 								<button type="submit">Search <i class="fas fa-search"></i></button>
@@ -120,7 +123,18 @@
 	<!-- end home page slider -->
 
 	@yield('content')
+    <button id="chatButton">Chat with Bot</button>
 
+    <div id="chatPopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <div id="chatWindow">
+                <div id="chatMessages"></div>
+                <input type="text" id="userMessage" placeholder="Type your message...">
+                <button id="sendMessage">Send</button>
+            </div>
+        </div>
+    </div>
 
 
 	@include('user.components.footer')
@@ -146,6 +160,7 @@
 	<script src="{{ asset('assets/js/sticker.js') }}"></script>
 	<!-- main js -->
 	<script src="{{ asset('assets/js/main.js') }}"></script>
+	<script src="{{ asset('assets/js/chatscripts.js') }}"></script>
 	@yield('script')
 </body>
 </html>

@@ -9,7 +9,7 @@ Route::middleware('guest:admin')->group(function () {
     Route::get('/login',[LoginController::class,'show_login'])->name('admin.show_login');
     Route::post('/login',[LoginController::class,'login'])->name('admin.login');
 });
-Route::middleware('auth:admin')->group(function(){
+Route::middleware(['redirect'])->group(function(){
 
     Route::get('/',[DashboardController::class,'index'])->name('dashboard');
     Route::get('/products',[ProductController::class,'index'])->name('admin.product.index');

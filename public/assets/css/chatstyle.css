@@ -1,0 +1,77 @@
+/* Button */
+#chatButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Popup window */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    border: 1px solid #888;
+    width: 300px;
+    background-color: #fefefe;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 9;
+}
+
+/* Popup content */
+.popup-content {
+    position: relative;
+    padding: 20px;
+    border: 1px solid #888;
+    background-color: #fefefe;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Chat window */
+#chatWindow {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+#chatMessages {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+#userMessage {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: calc(100% - 22px); /* Full width minus padding */
+}
+
+#sendMessage {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

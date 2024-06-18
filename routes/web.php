@@ -9,7 +9,7 @@ use App\Http\Controllers\Web\User\ProductController;
 use App\Http\Controllers\Web\User\RatingController;
 use App\Http\Controllers\Web\User\SearchController;
 use App\Http\Controllers\Web\User\UserController;
-
+use App\Http\Controllers\Web\User\ChatController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +35,8 @@ Route::middleware(['auth:user','verified'])->group(function () {
     Route::get('/profile',[UserController::class,'profile'])->name('user.profile');
     Route::put('/profile',[UserController::class,'update'])->name('profile.update');
     Route::put('/profile/image',[UserController::class,'updateImage'])->name('profile.update.image');
-
+    //chat
+    Route::post('/chat', [ChatController::class, 'sendMessage']);
     //serech
     Route::get('search',[SearchController::class,'index'])->name('user.search');
 
@@ -43,7 +44,7 @@ Route::middleware(['auth:user','verified'])->group(function () {
     Route::get('/info',function(){
         dd(auth()->user()->username);
     });
-    //cart 
+    //cart
     Route::post('/add-to-cart',[CartController::class,'addToCart'])->name('add-to-cart');
     Route::delete('/cart/{productId}', [CartController::class,'removeFromCart'])->name('cart.remove');
     //order
@@ -72,7 +73,7 @@ Route::middleware('guest:user')->group(function () {
     Route::get('/register',[LoginController::class,'show_register_page'])->name('show_register_page');
     Route::post('/register',[LoginController::class,'register'])->name('user.register');
     //end register
-    
+
     //start reset password
     Route::get('/forgot-password',[LoginController::class,'show_forgotPassowrd_page'])->name('show_forgotPassword_page');
 
@@ -82,12 +83,12 @@ Route::middleware('guest:user')->group(function () {
 
     Route::post('/reset-password',[LoginController::class,'resetPassowrd'])->name('user.resetPassword');
     //end reset password
-    
+
     //start verify email
     Route::get('/verify/email',[LoginController::class,'verifyEmail'])->name('verify.email')->middleware('signed');
     //end verify email
 
-    
+
 });
 Route::get('tester',function(){
     return view('user.test');
