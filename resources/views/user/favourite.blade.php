@@ -39,7 +39,14 @@
                     </div>
                 </div>
             </div> --}}
-
+            <div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center ">
+					<div class="section-title">
+						<h3> Favourites</h3>
+						{{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p> --}}
+					</div>
+				</div>
+			</div>
 			<div class="row product-lists">
                 @foreach ($favouriteProducts as $product)
 

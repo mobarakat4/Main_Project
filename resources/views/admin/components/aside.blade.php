@@ -1,7 +1,7 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
       <a href="index.html" class="app-brand-link">
-        
+
         <span class="app-brand-text demo menu-text fw-bolder ms-2">Admin Area</span>
       </a>
 
@@ -41,6 +41,44 @@
           </li>
         </ul>
       </li>
+      <li class="menu-item {{ Request::is('admin/categories*') ? 'active' : '' }}">
+        <a  href="{{ route('admin.product.index') }}" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Layouts">Categories</div>
+        </a>
+
+        <ul class="menu-sub">
+          <li class="menu-item {{ Request::is('admin/categories') ? 'active' : '' }}">
+            <a href="{{ route('admin.product.index') }}" class="menu-link">
+              <div data-i18n="Without menu">show Categories</div>
+            </a>
+          </li>
+          <li class="menu-item {{ Request::is('admin/categories/create') ? 'active' : '' }}">
+            <a href="{{ route('admin.product.create') }}" class="menu-link">
+              <div data-i18n="Without navbar">add Categories</div>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="menu-item {{ Request::is('admin/orders*') ? 'active' : '' }}">
+        <a  href="{{ route('admin.product.index') }}" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Layouts">Orders</div>
+        </a>
+
+        <ul class="menu-sub">
+          <li class="menu-item {{ Request::is('admin/orders') ? 'active' : '' }}">
+            <a href="{{ route('admin.product.index') }}" class="menu-link">
+              <div data-i18n="Without menu">show Orders</div>
+            </a>
+          </li>
+          {{-- <li class="menu-item {{ Request::is('admin/products/create') ? 'active' : '' }}">
+            <a href="{{ route('admin.product.create') }}" class="menu-link">
+              <div data-i18n="Without navbar">add product</div>
+            </a>
+          </li> --}}
+        </ul>
+      </li>
       {{-- users --}}
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -52,6 +90,25 @@
           <li class="menu-item">
             <a href="layouts-without-menu.html" class="menu-link">
               <div data-i18n="Without menu">show Users</div>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Layouts">Profile</div>
+        </a>
+
+        <ul class="menu-sub">
+          <li class="menu-item">
+            <a href="layouts-without-menu.html" class="menu-link">
+              <div data-i18n="Without menu">show Profile</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="layouts-without-menu.html" class="menu-link">
+              <div data-i18n="Without menu">add Admin</div>
             </a>
           </li>
         </ul>

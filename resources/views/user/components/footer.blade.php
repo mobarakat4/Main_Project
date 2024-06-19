@@ -5,7 +5,7 @@
 				<div class="col-lg-3 col-md-6">
 					<div class="footer-box about-widget">
 						<h2 class="widget-title">About us</h2>
-						<p> Backend Developer </p>
+						<p>  Pets Market </p>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6">
@@ -44,7 +44,7 @@
 		</div>
 	</div>
 	<!-- end footer -->
-	
+
 	<!-- copyright -->
 	<div class="copyright">
 		<div class="container">
@@ -69,4 +69,3 @@
 		</div>
 	</div>
 	<!-- end copyright -->
-	

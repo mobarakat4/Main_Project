@@ -37,7 +37,15 @@
 				</div>
 				<div class="col-md-7">
 					<div class="single-product-content">
-					<h3>{{ $product->name }}</h3>
+					<h3 >{{ $product->name }}
+                        <button class="favourite-btn" data-product-id="{{ $product->id }}">
+                            @if(Auth::user()->favourites->contains($product->id))
+                                <i class="fas fa-heart icon-favourite active"></i>
+                            @else
+                                <i class="fas fa-heart icon-favourite "></i>
+                            @endif
+                        </button>
+                    </h3>
 					<h3>{{ $product->price }}$</h3>
 					<div class="rating">
 						@for ($i = 1; $i <= 5; $i++)

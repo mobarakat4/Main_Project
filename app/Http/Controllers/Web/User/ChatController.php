@@ -25,7 +25,7 @@ class ChatController extends Controller
         // Return the bot's response
         return response()->json([
             // 'response' => $response->json()['response'] ?? 'No response from bot',
-            'response' => 'hello',
+            'response' => 'hello ,How i can help you?',
         ]);
     }
 }

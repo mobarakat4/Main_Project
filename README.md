@@ -1,7 +1,7 @@
 
 ## Requirements
 - PHP 8.2
-
+- composer
 ## Installation
 ```sh
 git clone https://github.com/mobarakat4/Main_Project.git
@@ -9,7 +9,8 @@ cd Main_Project
 cp .env.example .env
 composer install
 php artisan key:generate
-php artisan mi:f --seed
+php artisan migrate
+php artisan db:seed
 ```
 ## Run The Project
 - php artisan serve
