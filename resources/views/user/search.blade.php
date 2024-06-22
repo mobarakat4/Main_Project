@@ -10,6 +10,7 @@
     <div class="container mt-4 mb-4">
         <div class="row">
             <div class="col-md-8 offset-md-2">
+                <h3>search for : {{$searchTerm}}</h3>
                 <h2>Search Results</h2>
                 <ul class="list-group">
                     @foreach ($products as $product)

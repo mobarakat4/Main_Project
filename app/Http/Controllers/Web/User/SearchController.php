@@ -23,11 +23,14 @@ class SearchController extends Controller
         // ->where('name', 'like', "%$searchTerm%")
         // ->orWhere('description', 'like', "%$searchTerm%")
         // ->get();
-        
+
         // dd($products);
         return view('user.search',compact(
             // 'cats',
-            'products'
+            'products','searchTerm'
         ));
+    }
+    public function search_image(){
+        return redirect()->route('user.search',['search'=> 'dog']);
     }
 }

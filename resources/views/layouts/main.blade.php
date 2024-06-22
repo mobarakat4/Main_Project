@@ -139,10 +139,22 @@
 					<span class="close-btn"><i class="fas fa-window-close"></i></span>
 					<div class="search-bar">
 						<div class="search-bar-tablecell">
-							<form action="{{ route('user.search') }} " method="GET" enctype="multipart/form-data">
-
-								<h3>Search For:</h3>
-								<input type="file" class="form-control" name="search" placeholder="Keywords">
+							<form action="{{ route('user.searchImage') }} " method="POST" enctype="multipart/form-data">
+                                @csrf
+								<h3>Enter Image to search</h3>
+								<label style="desplay:block" for="uploadi" class="btn btn-primary me-2 mb-4" tabindex="0">
+                                    <span class="d-none d-sm-block">Upload Image</span>
+                                    <i class="bx bx-upload d-block d-sm-none"></i>
+                                    <input
+                                    type="file"
+                                    id="uploadi"
+                                    name='image'
+                                    class="account-file-input"
+                                    hidden
+                                    accept="image/png, image/jpeg"
+                                    />
+                                  </label>
+                                  <br>
 								<button type="submit">Search <i class="fas fa-search"></i></button>
 							</form>
 						</div>

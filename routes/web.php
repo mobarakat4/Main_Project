@@ -46,6 +46,7 @@ Route::middleware(['auth:user','verified'])->group(function () {
     Route::post('/favourites/{product}', [FavouriteController::class, 'toggleFavourite'])->name('favourites.toggle');
     //serech
     Route::get('search',[SearchController::class,'index'])->name('user.search');
+    Route::post('searchbyimage',[SearchController::class,'search_image'])->name('user.searchImage');
 
     //test
     Route::get('/info',function(){

@@ -10,22 +10,37 @@ class ChatController extends Controller
     //
 
     public function sendMessage(Request $request)
-    {
-        // $request->validate([
-        //     'message' => 'required|string',
-        // ]);
-
-        // $userMessage = $request->input('message');
-
-        // // Send the message to the bot API
-        // $response = Http::post('https://your-bot-api-endpoint', [
-        //     'message' => $userMessage,
-        // ]);
-
-        // Return the bot's response
-        return response()->json([
-            // 'response' => $response->json()['response'] ?? 'No response from bot',
-            'response' => 'hello ,How i can help you?',
+    { // Validate the incoming request
+        $request->validate([
+            'message' => 'required|string',
         ]);
+
+        // Get the user message from the request
+        $userMessage = $request->input('message');
+
+        try {
+            // Send the message to the Flask bot API
+            $response = Http::post('http://127.0.0.1:5000/chat', [
+                'message' => $userMessage,
+            ]);
+
+            // Check if the response is successful
+            if ($response->successful()) {
+                // Return the bot's response
+                return response()->json([
+                    'response' => $response->json()['response'] ?? 'No response from bot',
+                ]);
+            } else {
+                // Return an error message if the response is not successful
+                return response()->json([
+                    'error' => 'Failed to get a response from the bot',
+                ], $response->status());
+            }
+        } catch (\Exception $e) {
+            // Handle any exceptions that occur during the request
+            return response()->json([
+                'error' => 'An error occurred: ' . $e->getMessage(),
+            ], 500);
+        }
     }
 }
