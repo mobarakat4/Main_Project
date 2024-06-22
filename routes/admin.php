@@ -15,6 +15,7 @@ Route::middleware(['redirect'])->group(function(){
     Route::get('/products',[ProductController::class,'index'])->name('admin.product.index');
     Route::get('/products/create',[ProductController::class,'create'])->name('admin.product.create');
     Route::post('/products/store',[ProductController::class,'store'])->name('admin.product.store');
+    Route::delete('/products/{product_id}',[ProductController::class,'delete'])->name('admin.product.delete');
 
     //logout
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');

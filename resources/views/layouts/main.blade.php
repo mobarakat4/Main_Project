@@ -75,12 +75,27 @@
 								<li {{ Request::is('products') ? "class=current-list-item" : '' }}><a href="{{ route('product.index') }}">Products</a></li>
 
 								<li>
+
 									<div class="header-icons">
-										<a  href="{{ route('favourites.index') }}"><i class=" {{ Request::is('favourites') ? "fav-active" : 'fa-hov' }} fas fa-heart fav-icon icon-favourite" ></i></a>
-										<a {{ Request::is('cart') ? "class=my-active" : '' }} class="shopping-cart " href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart " ></i></a>
-										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-										<a  {{ Request::is('profile') ? "class=my-active" : '' }} href="{{ route('user.profile') }}">{{ auth()->user()->username }}</a>
-										<a href="{{ route('user.logout') }}">log out</a>
+
+                                                <a  href="{{ route('favourites.index') }}"><i class=" {{ Request::is('favourites') ? "fav-active" : 'fa-hov' }} fas fa-heart fav-icon icon-favourite" ></i></a>
+
+                                                <a {{ Request::is('cart') ? "class=my-active" : '' }} class="shopping-cart " href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart " ></i></a>
+
+
+                                                <span>
+                                                    <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                                                    <ul class="s-menu">
+                                                        <li><a class="search-bar-icon" href="#">Search By Name</a></li>
+                                                        <li><a class="search-image-icon" href="#">Search By Image</a></li>
+                                                    </ul>
+                                                </span>
+
+
+                                                <a  {{ Request::is('profile') ? "class=my-active" : '' }} href="{{ route('user.profile') }}">{{ auth()->user()->username }}</a>
+
+                                                <a href="{{ route('user.logout') }}">log out</a>
+
 
 									</div>
 
@@ -109,6 +124,25 @@
 
 								<h3>Search For:</h3>
 								<input type="text" name="search" placeholder="Keywords">
+								<button type="submit">Search <i class="fas fa-search"></i></button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="search-image-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<form action="{{ route('user.search') }} " method="GET" enctype="multipart/form-data">
+
+								<h3>Search For:</h3>
+								<input type="file" class="form-control" name="search" placeholder="Keywords">
 								<button type="submit">Search <i class="fas fa-search"></i></button>
 							</form>
 						</div>

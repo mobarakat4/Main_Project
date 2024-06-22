@@ -1,6 +1,6 @@
 /*
 Template Name: Fruitkha - Responsive Bootstrap4 Shop Template
-Template URI: 
+Template URI:
 Description: Bootstrap template for fruits or any other kind of shop
 Author: Imran Hossain
 Author URI: https://imransdesign.com/
@@ -595,8 +595,37 @@ nav.main-menu ul ul.sub-menu li a {
   padding: 7px 10px;
   font-size: 13px;
 }
+nav.main-menu ul ul.s-menu {
+  position: absolute;
+  background-color: #fff;
+  width: 220px;
+  padding: 15px 15px;
+  margin: 0;
+  left: 0;
+  top: 50px;
+  border-radius: 3px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-box-shadow: 0 0 20px #555555;
+  box-shadow: 0 0 20px #555555;
+}
 
-nav.main-menu ul > li:hover ul {
+nav.main-menu ul ul.s-menu li {
+  display: block;
+  text-align: left;
+}
+
+nav.main-menu ul ul.s-menu li a {
+  color: #555;
+  font-weight: 600;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+nav.main-menu ul > li span:hover ul {
   opacity: 1;
   visibility: visible;
 }
@@ -615,6 +644,9 @@ nav.main-menu > ul li:last-child {
 }
 
 ul.sub-menu li:last-child {
+  float: none !important;
+}
+ul.s-menu li:last-child {
   float: none !important;
 }
 
@@ -688,6 +720,16 @@ nav.main-menu ul ul.sub-menu li a {
   font-size: 13px;
   font-weight: 600;
 }
+nav.main-menu ul ul.s-menu li {
+  display: block;
+}
+
+nav.main-menu ul ul.s-menu li a {
+  color: #555;
+  padding: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
 
 nav.main-menu ul li.current-list-item > a {
   color: #F28123;
@@ -746,6 +788,16 @@ ul.navbar-nav {
   height: 100%;
   text-align: center;
 }
+.search-image-area {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 5555;
+  background-color: #051922;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
 
 span.close-btn {
   position: absolute;
@@ -758,8 +810,14 @@ span.close-btn {
 .search-area {
   height: 100%;
 }
+.search-image-area {
+  height: 100%;
+}
 
 .search-area div {
+  height: 100%;
+}
+.search-image-area div {
   height: 100%;
 }
 
@@ -774,6 +832,11 @@ a.mobile-show {
 }
 
 .search-area .search-bar div.search-bar-tablecell {
+  display: table-cell;
+  vertical-align: middle;
+  height: auto;
+}
+.search-image-area .search-bar div.search-bar-tablecell {
   display: table-cell;
   vertical-align: middle;
   height: auto;
@@ -831,8 +894,20 @@ a.mobile-show {
   -o-transition: 0.3s;
   transition: 0.3s;
 }
+.search-image-area {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
 
 .search-area.search-active {
+  visibility: visible;
+  opacity: 1;
+  z-index: 999;
+}
+.search-image-area.search-active {
   visibility: visible;
   opacity: 1;
   z-index: 999;
@@ -1028,13 +1103,13 @@ a.bordered-btn:hover {
   color: #fff;
 }
 
-ul.sub-menu a {
+ul.s-menu a {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
 }
 
-ul.sub-menu li:hover a {
+ul.s-menu li:hover a {
   color: #F28123;
 }
 
@@ -1265,6 +1340,24 @@ ul.sub-menu li a {
 }
 
 ul.sub-menu li:hover a {
+  color: #F28123 !important;
+}
+ul.s-menu li a {
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+ul.s-menu li:hover a {
+  color: #F28123 !important;
+}
+ul.s-menu li a {
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+ul.s-menu li:hover a {
   color: #F28123 !important;
 }
 

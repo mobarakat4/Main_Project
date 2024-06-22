@@ -2,7 +2,7 @@
 @section('head','All Products')
 @section('content')
 <div class="card">
-    
+
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -27,7 +27,7 @@
         </thead>
         <tbody class="table-border-bottom-0">
             @foreach ($products as $product )
-                
+
             <tr>
               <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $product->name }}</strong></td>
               <td>{{ $product->category->name }}</td>
@@ -57,9 +57,11 @@
                     <a class="dropdown-item" href="javascript:void(0);"
                       ><i class="bx bx-edit-alt me-1"></i> Edit</a
                     >
-                    <a class="dropdown-item" href="javascript:void(0);"
-                      ><i class="bx bx-trash me-1"></i> Delete</a
-                    >
+                    <form method="POST" action="{{route('admin.product.delete',$product->id)}}">
+                    @csrf
+                    @method('DELETE')
+                        <button class="dropdown-item"><i class="bx bx-trash me-1"></i> Delete</button>
+                    </form>
                   </div>
                 </div>
               </td>

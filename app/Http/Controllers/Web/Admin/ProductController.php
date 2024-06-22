@@ -37,4 +37,13 @@ class ProductController extends Controller
         return redirect()->route('admin.product.index')->with(['success' => 'product added successfully']);
 
     }
+    public function delete($product_id){
+        Product::where('id', $product_id)->delete();
+        return redirect()->route("admin.product.index")->with(
+            [
+                "success"=> "One Product deleted successfully"
+            ]
+        );
+
+    }
 }
